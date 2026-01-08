@@ -1,0 +1,26 @@
+imageUpdater:
+  enabled: true
+
+config:
+  registries:
+    - name: ghcr
+      api_url: https://ghcr.io
+      prefix: ghcr.io
+      credentials: secret:ghcr-secret
+
+  gitCommitUser: "argo-image-updater"
+  gitCommitEmail: "argo-image-updater@github.com"
+
+  logLevel: info
+
+authScripts:
+  enabled: false
+
+extraArgs:
+  - --interval=2m
+
+serviceAccount:
+  create: true
+
+rbac:
+  create: true
